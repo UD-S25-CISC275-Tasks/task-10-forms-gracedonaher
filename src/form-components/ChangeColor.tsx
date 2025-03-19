@@ -83,7 +83,7 @@ export function ChangeColor(): React.JSX.Element {
                     height: "50px",
                     backgroundColor: color,
                 }}
-                data-testid="colored-box" // Add this line
+                data-testid="colored-box" // Color box showing the selected color
             />
 
             {/* Display chosen color */}
