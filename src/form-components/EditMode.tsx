@@ -7,7 +7,9 @@ export function EditMode(): React.JSX.Element {
     const [isStudent, setIsStudent] = useState<boolean>(true);
 
     // Toggle the edit mode state
-    const toggleEditMode = () => setEditMode(!editMode);
+    const toggleEditMode = () => {
+        setEditMode(!editMode);
+    };
 
     // Handle the name change input
     const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {

@@ -21,7 +21,9 @@ export function GiveAttempts(): React.JSX.Element {
                 />
             </Form.Group>
             <Button
-                onClick={() => setAttempts(attempts - 1)}
+                onClick={() => {
+                    setAttempts(attempts - 1);
+                }}
                 disabled={attempts <= 0} // Disable button if no attempts left
             >
                 Use
