@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 
 export function GiveAttempts(): React.JSX.Element {
-    //state to represent attempts left; initial number 3
+    // state to represent attempts left; initial number 3
     const [attempts, setAttempts] = useState<number>(3);
-    let reqAttempts: number;
+    const [reqAttempts, setReqAttempts] = useState<number>(0); // Initializing reqAttempts
 
     function updateAttempts(attempts: number): number {
         setAttempts(attempts);
@@ -12,17 +12,19 @@ export function GiveAttempts(): React.JSX.Element {
     }
 
     return (
-        //buttons & attempts displayed
+        // buttons & attempts displayed
         <div>
             <Form.Group controlId="attempts">
                 <Form.Label>
-                    How many attempts would you like to add: "{reqAttempts}"
+                    How many attempts would you like to add: &quot;{reqAttempts}
+                    &quot; {/* Fixed unescaped quotes */}
                 </Form.Label>
                 <Form.Control
                     type="number"
-                    value={attempts}
-                    onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
-                        updateAttempts(reqAttempts)
+                    value={reqAttempts} // Updating to reqAttempts here
+                    onChange={
+                        (event: React.ChangeEvent<HTMLInputElement>) =>
+                            setReqAttempts(Number(event.target.value)) // Correctly handle input change
                     }
                 />
             </Form.Group>
@@ -31,7 +33,8 @@ export function GiveAttempts(): React.JSX.Element {
             <Button onClick={() => setAttempts(attempts + reqAttempts)}>
                 gain
             </Button>
-            <div>Attempts remaining: "{attempts}"</div>
+            <div>Attempts remaining: &quot;{attempts}&quot;</div>{" "}
+            {/* Fixed unescaped quotes */}
         </div>
     );
 }
