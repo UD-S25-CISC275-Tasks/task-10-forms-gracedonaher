@@ -22,9 +22,20 @@ export function GiveAttempts(): React.JSX.Element {
                     }}
                 />
             </Form.Group>
-            <Button onClick={() => setAttempts(attempts - 1)}>use</Button>
+            {/* Explicit return blocks for onClick */}
+            <Button
+                onClick={() => {
+                    setAttempts(attempts - 1);
+                }}
+            >
+                use
+            </Button>
             to {attempts}.
-            <Button onClick={() => setAttempts(attempts + reqAttempts)}>
+            <Button
+                onClick={() => {
+                    setAttempts(attempts + reqAttempts);
+                }}
+            >
                 gain
             </Button>
             <div>Attempts remaining: &quot;{attempts}&quot;</div>
