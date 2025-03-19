@@ -6,26 +6,20 @@ export function GiveAttempts(): React.JSX.Element {
     const [attempts, setAttempts] = useState<number>(3);
     const [reqAttempts, setReqAttempts] = useState<number>(0); // Initializing reqAttempts
 
-    function updateAttempts(attempts: number): number {
-        setAttempts(attempts);
-        return attempts;
-    }
-
     return (
         // buttons & attempts displayed
         <div>
             <Form.Group controlId="attempts">
                 <Form.Label>
                     How many attempts would you like to add: &quot;{reqAttempts}
-                    &quot; {/* Fixed unescaped quotes */}
+                    &quot;
                 </Form.Label>
                 <Form.Control
                     type="number"
                     value={reqAttempts} // Updating to reqAttempts here
-                    onChange={
-                        (event: React.ChangeEvent<HTMLInputElement>) =>
-                            setReqAttempts(Number(event.target.value)) // Correctly handle input change
-                    }
+                    onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+                        setReqAttempts(Number(event.target.value)); // Correctly handle input change
+                    }}
                 />
             </Form.Group>
             <Button onClick={() => setAttempts(attempts - 1)}>use</Button>
@@ -33,8 +27,7 @@ export function GiveAttempts(): React.JSX.Element {
             <Button onClick={() => setAttempts(attempts + reqAttempts)}>
                 gain
             </Button>
-            <div>Attempts remaining: &quot;{attempts}&quot;</div>{" "}
-            {/* Fixed unescaped quotes */}
+            <div>Attempts remaining: &quot;{attempts}&quot;</div>
         </div>
     );
 }

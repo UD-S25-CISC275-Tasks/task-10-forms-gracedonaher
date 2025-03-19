@@ -16,7 +16,7 @@ export function ChangeColor(): React.JSX.Element {
             <Form.Check
                 type="radio"
                 name="red"
-                onChange={updateColor} // Changed "onchange" to "onChange"
+                onChange={updateColor}
                 id="color-red"
                 label="red"
                 data-testid="red-box"
@@ -26,7 +26,7 @@ export function ChangeColor(): React.JSX.Element {
             <Form.Check
                 type="radio"
                 name="blue"
-                onChange={updateColor} // Changed "onchange" to "onChange"
+                onChange={updateColor}
                 id="color-blue"
                 label="blue"
                 data-testid="blue-box"
@@ -36,7 +36,7 @@ export function ChangeColor(): React.JSX.Element {
             <Form.Check
                 type="radio"
                 name="green"
-                onChange={updateColor} // Changed "onchange" to "onChange"
+                onChange={updateColor}
                 id="color-green"
                 label="green"
                 data-testid="green-box"
@@ -46,7 +46,7 @@ export function ChangeColor(): React.JSX.Element {
             <Form.Check
                 type="radio"
                 name="purple"
-                onChange={updateColor} // Changed "onchange" to "onChange"
+                onChange={updateColor}
                 id="color-purple"
                 label="purple"
                 data-testid="purple-box"
@@ -56,7 +56,7 @@ export function ChangeColor(): React.JSX.Element {
             <Form.Check
                 type="radio"
                 name="yellow"
-                onChange={updateColor} // Changed "onchange" to "onChange"
+                onChange={updateColor}
                 id="color-yellow"
                 label="yellow"
                 data-testid="yellow-box"
@@ -66,7 +66,7 @@ export function ChangeColor(): React.JSX.Element {
             <Form.Check
                 type="radio"
                 name="pink"
-                onChange={updateColor} // Changed "onchange" to "onChange"
+                onChange={updateColor}
                 id="color-pink"
                 label="pink"
                 data-testid="pink-box"
@@ -76,7 +76,7 @@ export function ChangeColor(): React.JSX.Element {
             <Form.Check
                 type="radio"
                 name="orange"
-                onChange={updateColor} // Changed "onchange" to "onChange"
+                onChange={updateColor}
                 id="color-orange"
                 label="orange"
                 data-testid="orange-box"
@@ -86,14 +86,15 @@ export function ChangeColor(): React.JSX.Element {
             <Form.Check
                 type="radio"
                 name="black"
-                onChange={updateColor} // Changed "onchange" to "onChange"
+                onChange={updateColor}
                 id="color-black"
                 label="black"
                 data-testid="black-box"
                 value="black"
                 checked={color === "black"}
             />
-            <div>You have chosen "{color}".</div>
+            <div>You have chosen &quot;{color}&quot;.</div>{" "}
+            {/* Escaped quotes */}
         </div>
     );
 }
