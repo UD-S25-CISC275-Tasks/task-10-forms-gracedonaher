@@ -7,17 +7,17 @@ export function MultipleChoiceQuestion({
     options: string[];
     expectedAnswer: string;
 }): React.JSX.Element {
-    // State to track the selected option
+    // State for the selected answer
     const [selectedOption, setSelectedOption] = useState<string>(options[0]);
 
-    // Function to handle changes in the selected option
+    // Handle the change in selection
     const handleSelectChange = (
         event: React.ChangeEvent<HTMLSelectElement>,
     ) => {
         setSelectedOption(event.target.value);
     };
 
-    // Determine if the selected option matches the expected answer
+    // Check if the selected option is correct
     const isCorrect = selectedOption === expectedAnswer;
 
     return (
@@ -34,6 +34,7 @@ export function MultipleChoiceQuestion({
                     </option>
                 ))}
             </select>
+            {/* Display either a ✔️ or ❌ depending on whether the answer is correct */}
             <div>{isCorrect ? "✔️" : "❌"}</div>
         </div>
     );
