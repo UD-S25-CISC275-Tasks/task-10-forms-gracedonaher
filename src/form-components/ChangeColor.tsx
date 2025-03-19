@@ -75,6 +75,8 @@ export function ChangeColor(): React.JSX.Element {
                 onChange={updateColor}
                 checked={color === "black"}
             />
+
+            {/* Color Box */}
             <div
                 style={{
                     width: "50px",
@@ -83,7 +85,11 @@ export function ChangeColor(): React.JSX.Element {
                 }}
                 data-testid="colored-box" // Add this line
             />
-            <div>You have chosen &quot;{color}&quot;.</div>
+
+            {/* Display chosen color */}
+            <div data-testid="chosen-color">
+                You have chosen &quot;{color}&quot;.
+            </div>
         </div>
     );
 }
