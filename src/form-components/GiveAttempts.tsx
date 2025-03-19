@@ -9,8 +9,7 @@ export function GiveAttempts(): React.JSX.Element {
         <div>
             <Form.Group controlId="attempts">
                 <Form.Label>
-                    How many attempts would you like to add: &quot;{reqAttempts}
-                    &quot;
+                    How many attempts would you like to add:
                 </Form.Label>
                 <Form.Control
                     type="number"
@@ -43,9 +42,9 @@ export function GiveAttempts(): React.JSX.Element {
                 Gain
             </Button>
 
-            {/* Display remaining attempts */}
+            {/* Display remaining attempts with a unique element */}
             <div data-testid="attempts-remaining">
-                Attempts remaining: &quot;{attempts}&quot;
+                Attempts remaining: {attempts}
             </div>
         </div>
     );
