@@ -2,12 +2,10 @@ import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 
 export function GiveAttempts(): React.JSX.Element {
-    // state to represent attempts left; initial number 3
-    const [attempts, setAttempts] = useState<number>(3);
-    const [reqAttempts, setReqAttempts] = useState<number>(0); // Initializing reqAttempts
+    const [attempts, setAttempts] = useState<number>(3); // Initially set to 3
+    const [reqAttempts, setReqAttempts] = useState<number>(0);
 
     return (
-        // buttons & attempts displayed
         <div>
             <Form.Group controlId="attempts">
                 <Form.Label>
@@ -16,27 +14,28 @@ export function GiveAttempts(): React.JSX.Element {
                 </Form.Label>
                 <Form.Control
                     type="number"
-                    value={reqAttempts} // Updating to reqAttempts here
+                    value={reqAttempts}
                     onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-                        setReqAttempts(Number(event.target.value)); // Correctly handle input change
+                        setReqAttempts(Number(event.target.value));
                     }}
                 />
             </Form.Group>
-            {/* Explicit return blocks for onClick */}
             <Button
-                onClick={() => {
-                    setAttempts(attempts - 1);
-                }}
+                onClick={() => setAttempts(attempts - 1)}
+                disabled={attempts <= 0} // Disable button if no attempts left
             >
-                use
+                Use
             </Button>
             to {attempts}.
             <Button
                 onClick={() => {
-                    setAttempts(attempts + reqAttempts);
+                    if (reqAttempts > 0) {
+                        setAttempts(attempts + reqAttempts);
+                    }
                 }}
+                disabled={reqAttempts <= 0} // Disable if no valid input for gaining attempts
             >
-                gain
+                Gain
             </Button>
             <div>Attempts remaining: &quot;{attempts}&quot;</div>
         </div>
