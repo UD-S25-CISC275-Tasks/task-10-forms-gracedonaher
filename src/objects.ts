@@ -9,7 +9,7 @@ import { Question, QuestionType } from "./interfaces/question";
 export function makeBlankQuestion(
     id: number,
     name: string,
-    type: QuestionType
+    type: QuestionType,
 ): Question {
     return {
         id,
@@ -176,7 +176,7 @@ export function mergeQuestion(
     id: number,
     name: string,
     contentQuestion: Question,
-    secondQuestion: Question
+    secondQuestion: Question,
 ) {
     return {
         id,

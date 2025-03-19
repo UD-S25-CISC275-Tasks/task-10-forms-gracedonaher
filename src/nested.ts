@@ -23,7 +23,7 @@ export function getNonEmptyQuestions(questions: Question[]): Question[] {
         (question) =>
             question.body.trim() !== "" ||
             question.expected.trim() !== "" ||
-            question.options.length > 0
+            question.options.length > 0,
     );
 }
 
@@ -34,7 +34,7 @@ export function getNonEmptyQuestions(questions: Question[]): Question[] {
  */
 export function findQuestion(
     questions: Question[],
-    id: number
+    id: number,
 ): Question | null {
     const question = questions.find((q) => q.id === id);
     return question || null;
@@ -154,7 +154,7 @@ export function addNewQuestion(
     questions: Question[],
     id: number,
     name: string,
-    type: QuestionType
+    type: QuestionType,
 ): Question[] {
     const newQuestion = makeBlankQuestion(id, name, type);
     return [...questions, newQuestion];
@@ -169,10 +169,10 @@ export function addNewQuestion(
 export function renameQuestionById(
     questions: Question[],
     targetId: number,
-    newName: string
+    newName: string,
 ): Question[] {
     return questions.map((question) =>
-        question.id === targetId ? { ...question, name: newName } : question
+        question.id === targetId ? { ...question, name: newName } : question,
     );
 }
 
@@ -187,7 +187,7 @@ export function renameQuestionById(
 export function changeQuestionTypeById(
     questions: Question[],
     targetId: number,
-    newQuestionType: QuestionType
+    newQuestionType: QuestionType,
 ): Question[] {
     return questions.map((question) => {
         if (question.id === targetId) {
@@ -195,9 +195,9 @@ export function changeQuestionTypeById(
                 ...question,
                 type: newQuestionType,
                 options:
-                    newQuestionType === "multiple_choice_question"
-                        ? question.options
-                        : [],
+                    newQuestionType === "multiple_choice_question" ?
+                        question.options
+                    :   [],
             };
         }
         return question;
@@ -219,7 +219,7 @@ export function editOption(
     questions: Question[],
     targetId: number,
     targetOptionIndex: number,
-    newOption: string
+    newOption: string,
 ): Question[] {
     const modifyOptions = (question: Question): Question => {
         if (question.id === targetId) {
@@ -246,7 +246,7 @@ export function editOption(
 export function duplicateQuestionInArray(
     questions: Question[],
     targetId: number,
-    newId: number
+    newId: number,
 ): Question[] {
     const index = questions.findIndex((q) => q.id === targetId);
 

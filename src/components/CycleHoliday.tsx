@@ -14,7 +14,7 @@ const holidays = [
 // Alphabetical function
 const nextHolidayAlphabetically = (currentHoliday: string): string => {
     const currentIndex = holidays.findIndex(
-        (holiday) => holiday.name === currentHoliday
+        (holiday) => holiday.name === currentHoliday,
     );
     const nextIndex = (currentIndex + 1) % holidays.length;
     return holidays[nextIndex].name;
@@ -23,7 +23,7 @@ const nextHolidayAlphabetically = (currentHoliday: string): string => {
 // Year function
 const nextHolidayByYear = (currentHoliday: string): string => {
     const currentIndex = holidays.findIndex(
-        (holiday) => holiday.name === currentHoliday
+        (holiday) => holiday.name === currentHoliday,
     );
     const nextIndex = (currentIndex + 1) % holidays.length;
     return holidays[nextIndex].name;
@@ -45,7 +45,7 @@ export function CycleHoliday(): React.JSX.Element {
 
     // Find the current holiday emoji
     const currentHolidayEmoji = holidays.find(
-        (holiday) => holiday.name === currentHoliday
+        (holiday) => holiday.name === currentHoliday,
     )?.emoji;
 
     return (
