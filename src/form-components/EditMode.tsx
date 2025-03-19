@@ -26,8 +26,9 @@ export function EditMode(): React.JSX.Element {
                     role="checkbox"
                     checked={isEditMode}
                     onChange={toggleEditMode}
+                    id="edit-mode-toggle" // Ensure unique IDs
                 />
-                <label>Switch to Edit Mode</label>
+                <label htmlFor="edit-mode-toggle">Switch to Edit Mode</label>
             </div>
 
             {isEditMode ?
@@ -39,13 +40,15 @@ export function EditMode(): React.JSX.Element {
                         onChange={handleNameChange}
                     />
                     <div>
+                        {/* Ensure checkbox is correctly linked with the label */}
                         <input
                             type="checkbox"
                             role="checkbox"
                             checked={isStudent}
                             onChange={handleStudentChange}
+                            id="student-checkbox" // Ensure unique ID
                         />
-                        <label>Student</label>
+                        <label htmlFor="student-checkbox">Student</label>
                     </div>
                 </div>
             :   <div>
