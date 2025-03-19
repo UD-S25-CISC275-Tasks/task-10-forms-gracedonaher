@@ -28,7 +28,7 @@ export function GiveAttempts(): React.JSX.Element {
             >
                 Use
             </Button>
-            to {attempts}.
+            {/* Only display the remaining attempts in one place */}
             <Button
                 onClick={() => {
                     if (reqAttempts > 0) {
@@ -39,6 +39,7 @@ export function GiveAttempts(): React.JSX.Element {
             >
                 Gain
             </Button>
+            {/* Remove the redundant display of attempts */}
             <div>Attempts remaining: &quot;{attempts}&quot;</div>
         </div>
     );
