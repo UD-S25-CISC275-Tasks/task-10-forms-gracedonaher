@@ -40,7 +40,9 @@ export function GiveAttempts(): React.JSX.Element {
                 Gain
             </Button>
             {/* Remove the redundant display of attempts */}
-            <div>Attempts remaining: &quot;{attempts}&quot;</div>
+            <div data-testid="attempts-remaining">
+                Attempts remaining: &quot;{attempts}&quot;
+            </div>
         </div>
     );
 }
