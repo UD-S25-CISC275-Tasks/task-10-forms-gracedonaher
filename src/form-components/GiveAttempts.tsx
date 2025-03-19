@@ -20,26 +20,30 @@ export function GiveAttempts(): React.JSX.Element {
                     }}
                 />
             </Form.Group>
+
+            {/* Use Button */}
             <Button
                 onClick={() => {
-                    setAttempts(attempts - 1);
+                    setAttempts((prev) => prev - 1); // Decrease attempts by 1
                 }}
                 disabled={attempts <= 0} // Disable button if no attempts left
             >
                 Use
             </Button>
-            {/* Only display the remaining attempts in one place */}
+
+            {/* Gain Button */}
             <Button
                 onClick={() => {
                     if (reqAttempts > 0) {
-                        setAttempts(attempts + reqAttempts);
+                        setAttempts((prev) => prev + reqAttempts); // Add requested attempts
                     }
                 }}
                 disabled={reqAttempts <= 0} // Disable if no valid input for gaining attempts
             >
                 Gain
             </Button>
-            {/* Remove the redundant display of attempts */}
+
+            {/* Display remaining attempts */}
             <div data-testid="attempts-remaining">
                 Attempts remaining: &quot;{attempts}&quot;
             </div>
