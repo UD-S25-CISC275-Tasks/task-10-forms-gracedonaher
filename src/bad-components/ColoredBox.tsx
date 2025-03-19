@@ -14,7 +14,7 @@ function ChangeColor({
     return (
         <Button
             onClick={() => {
-                setColorIndex((colorIndex + 1) % COLORS.length);
+                setColorIndex((colorIndex + 1) % COLORS.length); // Ensure no conflict with state
             }}
         >
             Next Color
