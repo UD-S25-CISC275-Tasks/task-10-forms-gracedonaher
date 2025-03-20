@@ -87,10 +87,7 @@ export function ChangeColor(): React.JSX.Element {
             />
 
             {/* Display chosen color */}
-            <div data-testid="chosen-color">
-                You have chosen &quot;{color}&quot;.
-            </div>
-            <div>{color}</div>
+            <div data-testid="chosen-color">You have chosen {color}.</div>
         </div>
     );
 }
