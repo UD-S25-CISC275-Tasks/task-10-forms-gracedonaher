@@ -8,86 +8,61 @@ export function ChangeColor(): React.JSX.Element {
         setColor(event.target.value);
     };
 
+    // List of colors for the radio buttons
+    const colorOptions = [
+        "red",
+        "blue",
+        "green",
+        "purple",
+        "yellow",
+        "pink",
+        "orange",
+        "black",
+    ];
+
     return (
         <div>
-            {/* Adding 8 color options as required */}
-            <Form.Check
-                type="radio"
-                name="color"
-                value="red"
-                label="Red"
-                onChange={updateColor}
-                checked={color === "red"}
-            />
-            <Form.Check
-                type="radio"
-                name="color"
-                value="blue"
-                label="Blue"
-                onChange={updateColor}
-                checked={color === "blue"}
-            />
-            <Form.Check
-                type="radio"
-                name="color"
-                value="green"
-                label="Green"
-                onChange={updateColor}
-                checked={color === "green"}
-            />
-            <Form.Check
-                type="radio"
-                name="color"
-                value="purple"
-                label="Purple"
-                onChange={updateColor}
-                checked={color === "purple"}
-            />
-            <Form.Check
-                type="radio"
-                name="color"
-                value="yellow"
-                label="Yellow"
-                onChange={updateColor}
-                checked={color === "yellow"}
-            />
-            <Form.Check
-                type="radio"
-                name="color"
-                value="pink"
-                label="Pink"
-                onChange={updateColor}
-                checked={color === "pink"}
-            />
-            <Form.Check
-                type="radio"
-                name="color"
-                value="orange"
-                label="Orange"
-                onChange={updateColor}
-                checked={color === "orange"}
-            />
-            <Form.Check
-                type="radio"
-                name="color"
-                value="black"
-                label="Black"
-                onChange={updateColor}
-                checked={color === "black"}
-            />
+            {/* Dynamically render radio buttons from colorOptions array */}
+            {colorOptions.map((colorOption) => (
+                <Form.Check
+                    key={colorOption}
+                    type="radio"
+                    name="color"
+                    value={colorOption}
+                    label={
+                        colorOption.charAt(0).toUpperCase() +
+                        colorOption.slice(1)
+                    } // Capitalize the color name
+                    onChange={updateColor}
+                    checked={color === colorOption}
+                    inline
+                />
+            ))}
 
             {/* Color Box */}
             <div
                 style={{
-                    width: "50px",
+                    width: "150px",
                     height: "50px",
                     backgroundColor: color,
+                    color: "#fff", // Text color to make sure it's visible
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    textAlign: "center",
                 }}
                 data-testid="colored-box" // Color box showing the selected color
-            />
+            >
+                {color ?
+                    color.charAt(0).toUpperCase() + color.slice(1)
+                :   "Select a color"}{" "}
+                {/* Display color name */}
+            </div>
 
             {/* Display chosen color */}
-            <div data-testid="chosen-color">You have chosen {color}.</div>
+            <div data-testid="chosen-color">
+                You have chosen {color ? color : "no color"}
+            </div>
         </div>
     );
 }
